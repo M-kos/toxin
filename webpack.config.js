@@ -14,5 +14,11 @@ module.exports = {
                 exclude: /node_modules/
             }
         ]
+    },
+    devServer: {
+        contentBase: path.resolve(__dirname, './uikit/dist'),
+        port: 3200,
+        overlay: true,
+        open: 'Google Chrome'
     }
 }
