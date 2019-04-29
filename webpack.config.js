@@ -14,6 +14,13 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/
             }
+            {
+                test: /\.pug$/,
+                loader: 'pug-loader',
+                options: {
+                    pretty: true
+                }
+            }
         ]
     },
     plugins: [
