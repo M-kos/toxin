@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     entry: './uikit/src/index.js',
     output: {
-        filename: 'bundle.js',
+        filename: 'js/[name].js',
         path: path.resolve(__dirname, './uikit/dist')
     },
     module: {
@@ -21,6 +21,14 @@ module.exports = {
                 options: {
                     pretty: true
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
+            },
+            {
+                test: /\.scss$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
             }
         ]
     },
@@ -29,6 +37,9 @@ module.exports = {
             filename: 'index.html',
             template: path.resolve(__dirname, './uikit/src/index.pug')
         }),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].css'
+        })
     ],
     devServer: {
         contentBase: path.resolve(__dirname, './uikit/dist'),
