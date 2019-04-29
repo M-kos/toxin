@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './uikit/src/index.js',
@@ -15,6 +16,12 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin ({ 
+            filename: 'index.html',
+            template: path.resolve(__dirname, './uikit/src/index.pug')
+        }),
+    ],
     devServer: {
         contentBase: path.resolve(__dirname, './uikit/dist'),
         port: 3200,
