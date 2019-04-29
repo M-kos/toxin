@@ -20,7 +20,13 @@
   },
   "homepage": "https://github.com/M-kos/toxin#readme",
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4"
   }
 }
