@@ -1,12 +1,20 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: './uikit/src/index.js',
     output: {
         filename: 'js/[name].js',
         path: path.resolve(__dirname, './uikit/dist')
+    },
+    optimization: {
+        minimizer: [
+          new OptimizeCssAssetsPlugin({}),
+          new UglifyJsPlugin({})
+        ]
     },
     module: {
         rules: [
