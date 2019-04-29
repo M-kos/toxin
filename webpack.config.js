@@ -7,7 +7,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
     entry: './uikit/src/index.js',
     output: {
-        filename: 'js/[name].js',
+        filename: 'js/bundle.js',
         path: path.resolve(__dirname, './uikit/dist')
     },
     optimization: {
@@ -37,6 +37,22 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(jpg|png|svg)$/,
+                loader: 'file-loader',
+                exclude: /fonts/,
+                options: {
+                    name: 'images/[name].[ext]'
+                },
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+                loader: 'file-loader',
+                exclude: /Icons/,
+                options: {
+                    name: 'fonts/[name].[ext]'
+                },
             }
         ]
     },
@@ -46,7 +62,7 @@ module.exports = {
             template: path.resolve(__dirname, './uikit/src/index.pug')
         }),
         new MiniCssExtractPlugin({
-            filename: 'css/[name].css'
+            filename: 'css/style.css'
         })
     ],
     devServer: {
