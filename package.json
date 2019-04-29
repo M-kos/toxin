@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/M-kos/toxin/issues"
   },
-  "homepage": "https://github.com/M-kos/toxin#readme"
+  "homepage": "https://github.com/M-kos/toxin#readme",
+  "devDependencies": {
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
+  }
 }
