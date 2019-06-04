@@ -74,6 +74,6 @@ module.exports = {
         contentBase: path.resolve(__dirname, './uikit/dist'),
         port: 3200,
         overlay: true,
-        open: 'Google Chrome'
+        open: true
     }
 }
