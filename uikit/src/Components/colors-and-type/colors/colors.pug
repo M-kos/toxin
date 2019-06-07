@@ -1,0 +1,18 @@
+include __colored-squer/__colored-squer.pug
+include __color-description/__color-description.pug
+
+mixin blockColors(obj)
+    each item in obj
+        +squer(item.modifier)
+        +descriptionOfColor(item.descript, item.color)
+
+div(class="colors")
+    +blockColors([
+        {'modifier':'colored-squer_dark-shade-100', 'descript':'Dark Shade 100%', 'color':'#1F2041'},
+        {'modifier':'colored-squer_dark-shade-75', 'descript':'Dark Shade 75%', 'color':'#1F2041'},
+        {'modifier':'colored-squer_dark-shade-50', 'descript':'Dark Shade 50%', 'color':'#1F2041'},
+        {'modifier':'colored-squer_dark-shade-25', 'descript':'Dark Shade 25%', 'color':'#1F2041'},
+        {'modifier':'colored-squer_dark-shade-5', 'descript':'Dark Shade 5%', 'color':'#1F2041'},
+        {'modifier':'colored-squer_purple', 'descript':'Purple', 'color':'#BC9CFF'},
+        {'modifier':'colored-squer_green', 'descript':'Green', 'color':'#6FCF97'}
+    ])
